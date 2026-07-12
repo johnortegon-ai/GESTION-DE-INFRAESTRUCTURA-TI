@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Infraestructura en la Nube y Virtualización
+</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/*======================================
+ IMÁGENES DE LAS SECCIONES
+======================================*/
+
+.imagen-seccion{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:25px;
+
+margin:35px 0;
+
+flex-wrap:wrap;
+
+}
+
+.imagen-seccion img{
+
+width:420px;
+
+max-width:100%;
+
+border-radius:15px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.20);
+
+transition:.4s;
+
+}
+
+.imagen-seccion img:hover{
+
+transform:scale(1.04);
+
+}
+
+.gif{
+
+width:320px !important;
+
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+
+background:#eef4fb;
+color:#222;
+
+}
+
+header{
+
+height:100vh;
+
+background:linear-gradient(135deg,#0f172a,#1d4ed8,#38bdf8);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+color:white;
+
+padding:50px;
+
+}
+
+.hero{
+
+max-width:900px;
+
+animation:fade 1.2s;
+
+}
+
+.hero h1{
+
+font-size:58px;
+
+margin-bottom:20px;
+
+}
+
+.hero p{
+
+font-size:22px;
+
+margin-bottom:30px;
+
+line-height:1.8;
+
+}
+
+.btn{
+
+display:inline-block;
+
+padding:15px 40px;
+
+background:white;
+
+color:#2563eb;
+
+font-weight:bold;
+
+text-decoration:none;
+
+border-radius:40px;
+
+transition:.4s;
+
+}
+
+.btn:hover{
+
+transform:translateY(-5px);
+
+background:#dbeafe;
+
+}
+
+nav{
+
+position:sticky;
+
+top:0;
+
+background:#0f172a;
+
+display:flex;
+
+justify-content:center;
+
+padding:18px;
+
+z-index:999;
+
+box-shadow:0 2px 10px rgba(0,0,0,.3);
+
+}
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+margin:0 18px;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:#38bdf8;
+
+}
+
+section{
+
+padding:70px 10%;
+
+}
+
+.titulo{
+
+font-size:40px;
+
+color:#1e3a8a;
+
+margin-bottom:20px;
+
+}
+
+.subtitulo{
+
+font-size:22px;
+
+margin-bottom:40px;
+
+color:#444;
+
+}
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:25px;
+
+}
+
+.card{
+
+background:white;
+
+padding:30px;
+
+border-radius:15px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.card h3{
+
+color:#2563eb;
+
+margin-bottom:15px;
+
+}
+
+.card p{
+
+line-height:1.8;
+
+}
+
+.banner{
+
+background:linear-gradient(90deg,#2563eb,#38bdf8);
+
+padding:50px;
+
+border-radius:15px;
+
+color:white;
+
+margin-top:50px;
+
+}
+
+.banner h2{
+
+margin-bottom:20px;
+
+}
+
+.diagrama{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+margin-top:40px;
+
+flex-wrap:wrap;
+
+}
+
+.box{
+
+padding:20px;
+
+background:white;
+
+border-radius:12px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.12);
+
+font-weight:bold;
+
+min-width:170px;
+
+text-align:center;
+
+}
+
+footer{
+
+background:#0f172a;
+
+color:white;
+
+padding:40px;
+
+text-align:center;
+
+margin-top:80px;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(50px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:38px;
+
+}
+
+.hero p{
+
+font-size:18px;
+
+}
+
+.titulo{
+
+font-size:32px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="hero">
+
+<h1>
+
+☁ Infraestructura en la Nube y Virtualización
+
+</h1>
+
+<p>
+
+Sitio web educativo desarrollado para comprender los conceptos de Cloud Computing,
+Infraestructura TI, Infraestructura Hiperconvergente, Virtualización,
+Automatización de TI y Gestión de Riesgos.
+
+</p>
+
+<a href="#unidad5" class="btn">
+
+Comenzar
+
+</a>
+
+</div>
+
+</header>
+
+<nav>
+
+<a href="#unidad5">Unidad 5</a>
+
+<a href="#cloud Computing">Cloud Computing</a>
+
+<a href="#infraestructura">Infraestructura</a>
+
+<a href="#hci">HCI</a>
+
+<a href="#virtualizacion">Virtualización</a>
+
+<a href="#unidad6">Unidad 6</a>
+
+<a href="#automatizacion">Automatización de TI</a>
+
+<a href="#riesgos">Gestión de Riesgos</a>
+
+<a href="#quiz">Quiz</a>
+
+</nav>
+
+<section id="unidad5">
+
+<h2 class="titulo">
+
+Unidad 5
+
+</h2>
+
+<p class="subtitulo">
+
+<strong>Pregunta problema:</strong>
+
+¿Cómo se implementa y gestiona la infraestructura en la nube y la virtualización
+en las organizaciones?
+
+</p>
+
+<div class="banner">
+
+<h2>
+
+Objetivo de aprendizaje
+
+</h2>
+
+<p>
+
+Comprender cómo las organizaciones implementan infraestructuras tecnológicas
+modernas utilizando servicios en la nube, virtualización e infraestructura
+hiperconvergente para mejorar la disponibilidad, la escalabilidad y la
+continuidad del negocio.
+
+</p>
+
+</div>
+<div class="imagen-seccion">
+
+<img src="https://media.giphy.com/media/l0HlNaQ6gWfllcjDO/giphy.gif"
+class="gif">
+
+<img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80">
+
+</div>
+</section>
+
+<section id="cloud">
+
+<h2 class="titulo">
+
+☁ Cloud Computing
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+
+¿Qué es?
+
+</h3>
+
+<p>
+
+Cloud Computing es un modelo de prestación de servicios tecnológicos que
+permite acceder a recursos de infraestructura, plataformas y software
+mediante Internet. Los usuarios pueden utilizar servidores, bases de datos,
+almacenamiento y aplicaciones sin necesidad de adquirir infraestructura física,
+pagando únicamente por los recursos consumidos.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+Características
+
+</h3>
+
+<p>
+
+• Pago por uso<br>
+
+• Escalabilidad automática<br>
+
+• Alta disponibilidad<br>
+
+• Elasticidad<br>
+
+• Acceso desde cualquier lugar<br>
+
+• Administración centralizada
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+Beneficios
+
+</h3>
+
+<p>
+
+Reduce costos de infraestructura,
+mejora la continuidad del negocio,
+permite implementar soluciones en minutos,
+facilita la innovación y ofrece una alta disponibilidad para los servicios
+empresariales.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="diagrama">
+
+<div class="box">
+
+Usuario
+
+</div>
+
+<div class="box">
+
+Internet
+
+</div>
+
+<div class="box">
+
+Proveedor Cloud
+
+</div>
+
+<div class="box">
+
+Aplicaciones
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Continúa en la Respuesta 2 -->
+
+<!-- ========================================================= -->
+<!-- INFRAESTRUCTURA TI -->
+<!-- ========================================================= -->
+
+<section id="infraestructura">
+
+    <h2 class="titulo">
+        🖥 Infraestructura de TI
+    </h2>
+
+    <p class="subtitulo">
+        La infraestructura de Tecnologías de la Información constituye la base
+        sobre la cual operan todas las aplicaciones, servicios y procesos
+        digitales de una organización. Una infraestructura moderna debe ser
+        segura, escalable, flexible y estar disponible permanentemente para
+        garantizar la continuidad del negocio.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>¿Qué es la Infraestructura TI?</h3>
+
+            <p>
+
+                La infraestructura TI corresponde al conjunto de recursos físicos
+                y lógicos que soportan el funcionamiento de una organización.
+
+                Está conformada por servidores, redes, dispositivos de
+                almacenamiento, sistemas operativos, bases de datos, software,
+                plataformas de virtualización, herramientas de seguridad y
+                servicios en la nube.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Objetivos</h3>
+
+            <p>
+
+                ✔ Garantizar la disponibilidad de los servicios.<br><br>
+
+                ✔ Mantener la continuidad del negocio.<br><br>
+
+                ✔ Reducir costos operativos.<br><br>
+
+                ✔ Facilitar el crecimiento tecnológico.<br><br>
+
+                ✔ Proteger la información corporativa.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Beneficios</h3>
+
+            <p>
+
+                Una infraestructura bien diseñada permite aumentar la
+                productividad, mejorar la experiencia del usuario,
+                reducir tiempos de inactividad, automatizar procesos y ofrecer
+                mayor seguridad para la información empresarial.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="banner">
+
+        <h2>Componentes principales</h2>
+
+        <p>
+
+            Toda infraestructura moderna integra diferentes componentes que
+            trabajan de forma coordinada para garantizar el funcionamiento de
+            los servicios tecnológicos.
+
+        </p>
+
+    </div>
+
+    <div class="diagrama">
+
+        <div class="box">🖥 Servidores</div>
+
+        <div class="box">💾 Storage</div>
+
+        <div class="box">🌐 Redes</div>
+
+        <div class="box">🔒 Seguridad</div>
+
+        <div class="box">☁ Cloud</div>
+
+    </div>
+
+    <br><br>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>Servidores</h3>
+
+            <p>
+
+                Ejecutan aplicaciones, bases de datos y servicios empresariales.
+                Actualmente pueden ser físicos o virtuales y alojarse tanto en
+                centros de datos propios como en proveedores cloud.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Redes</h3>
+
+            <p>
+
+                Permiten la comunicación entre usuarios, aplicaciones,
+                servidores y servicios en la nube mediante routers,
+                switches, firewalls y enlaces de alta velocidad.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Almacenamiento</h3>
+
+            <p>
+
+                Conserva la información de manera segura mediante tecnologías
+                SAN, NAS, almacenamiento distribuido y servicios cloud como
+                Amazon S3, Azure Storage o Google Cloud Storage.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- HIPERCONVERGENCIA -->
+<!-- ========================================================= -->
+
+<section id="hci">
+
+<h2 class="titulo">
+
+⚡ Infraestructura Hiperconvergente (HCI)
+
+</h2>
+
+<p class="subtitulo">
+
+La Infraestructura Hiperconvergente representa la evolución de los centros de
+datos tradicionales al integrar cómputo, almacenamiento y redes en una única
+plataforma administrada mediante software.
+
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+
+¿Qué es HCI?
+
+</h3>
+
+<p>
+
+La infraestructura hiperconvergente fusiona servidores,
+almacenamiento y redes en nodos inteligentes que funcionan como un
+solo sistema.
+
+La administración se realiza desde una única consola, reduciendo la
+complejidad operacional.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+Ventajas
+
+</h3>
+
+<p>
+
+✔ Administración centralizada<br><br>
+
+✔ Escalabilidad horizontal<br><br>
+
+✔ Menores costos de operación<br><br>
+
+✔ Mayor disponibilidad<br><br>
+
+✔ Alta resiliencia
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+Casos de uso
+
+</h3>
+
+<p>
+
+Las soluciones HCI son ampliamente utilizadas en bancos,
+hospitales, universidades, empresas de retail y proveedores cloud,
+donde la disponibilidad y la escalabilidad son factores críticos.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="banner">
+
+<h2>
+
+Arquitectura Hiperconvergente
+
+</h2>
+
+<p>
+
+Todos los recursos físicos son administrados por una capa de software
+que permite distribuir automáticamente las cargas de trabajo entre
+los diferentes nodos del clúster.
+
+</p>
+
+</div>
+
+<div class="diagrama">
+
+<div class="box">
+
+Servidor 1
+
+</div>
+
+<div class="box">
+
+Servidor 2
+
+</div>
+
+<div class="box">
+
+Servidor 3
+
+</div>
+
+<div class="box">
+
+Software HCI
+
+</div>
+
+<div class="box">
+
+Usuarios
+
+</div>
+
+</div>
+
+<br>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+
+Tecnologías líderes
+
+</h3>
+
+<p>
+
+• VMware vSAN<br>
+
+• Nutanix AHV<br>
+
+• Dell VxRail<br>
+
+• Cisco HyperFlex<br>
+
+• Microsoft Azure Stack HCI
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+Beneficios empresariales
+
+</h3>
+
+<p>
+
+Reduce el tiempo de implementación de nuevos servicios,
+simplifica la administración,
+mejora la recuperación ante desastres
+y facilita la transformación digital.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- VIRTUALIZACIÓN -->
+<!-- ========================================================= -->
+
+<section id="virtualizacion">
+
+<h2 class="titulo">
+
+💻 Virtualización
+
+</h2>
+
+<p class="subtitulo">
+
+La virtualización permite ejecutar múltiples sistemas operativos y
+aplicaciones sobre un mismo servidor físico, incrementando la utilización
+de los recursos y reduciendo considerablemente los costos de infraestructura.
+
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+
+Máquinas Virtuales
+
+</h3>
+
+<p>
+
+Una máquina virtual emula un computador completo mediante un hipervisor.
+Cada VM posee su propio sistema operativo, memoria, almacenamiento y CPU
+virtuales.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+Contenedores
+
+</h3>
+
+<p>
+
+Los contenedores comparten el sistema operativo del host,
+permitiendo desplegar aplicaciones de manera mucho más rápida,
+ligera y portable que las máquinas virtuales.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+Hipervisores
+
+</h3>
+
+<p>
+
+Los hipervisores administran las máquinas virtuales.
+
+Los más utilizados son VMware ESXi,
+Microsoft Hyper-V,
+KVM y Xen.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="banner">
+
+<h2>
+
+Comparación VM vs Contenedores
+
+</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+
+Máquinas Virtuales
+
+</h3>
+
+<p>
+
+✔ Mayor aislamiento<br>
+
+✔ Sistema operativo propio<br>
+
+✔ Más consumo de recursos<br>
+
+✔ Mayor seguridad
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+Contenedores
+
+</h3>
+
+<p>
+
+✔ Muy ligeros<br>
+
+✔ Inicio en segundos<br>
+
+✔ Alta portabilidad<br>
+
+✔ Ideales para microservicios
+
+</p>
+
+</div>
+
+</div>
+
+<div class="diagrama">
+
+<div class="box">
+
+Hardware
+
+</div>
+
+<div class="box">
+
+Hipervisor
+
+</div>
+
+<div class="box">
+
+Máquinas Virtuales
+
+</div>
+
+<div class="box">
+
+Aplicaciones
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========= FIN DE LA UNIDAD 5 ========= -->
+
+<!-- ========================================================= -->
+<!--                  UNIDAD 6                                 -->
+<!-- ========================================================= -->
+
+<section id="unidad6">
+
+<h2 class="titulo">
+
+⚙ Unidad 6: Automatización y Gestión de Riesgos en la Infraestructura TI
+
+</h2>
+
+<p class="subtitulo">
+
+<strong>Pregunta problema:</strong>
+
+¿Cómo la automatización y la gestión de riesgos contribuyen a una gestión eficiente de la infraestructura TI?
+
+</p>
+
+<div class="banner">
+
+<h2>
+
+¿Por qué es importante?
+
+</h2>
+
+<p>
+
+Las organizaciones administran miles de servidores, aplicaciones, redes y bases de datos. La automatización permite reducir tareas repetitivas, mientras que la gestión de riesgos protege la infraestructura frente a amenazas que podrían afectar la disponibilidad, integridad y confidencialidad de la información.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- AUTOMATIZACIÓN -->
+<!-- ========================================================= -->
+
+<section id="automatizacion">
+
+<h2 class="titulo">
+
+🤖 Automatización de TI
+
+</h2>
+
+<p class="subtitulo">
+
+La automatización consiste en ejecutar procesos tecnológicos mediante software sin intervención manual, permitiendo que las actividades repetitivas se realicen de forma más rápida, segura y consistente.
+
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>¿Qué es?</h3>
+
+<p>
+
+La automatización de TI utiliza scripts, flujos de trabajo y herramientas especializadas para configurar servidores, desplegar aplicaciones, administrar redes, realizar copias de seguridad y monitorear la infraestructura.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Beneficios</h3>
+
+<p>
+
+✔ Reduce errores humanos.<br><br>
+
+✔ Disminuye tiempos de implementación.<br><br>
+
+✔ Mejora la productividad.<br><br>
+
+✔ Incrementa la disponibilidad.<br><br>
+
+✔ Reduce costos operativos.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Aplicaciones</h3>
+
+<p>
+
+Implementación automática de servidores, actualización de sistemas, monitoreo de redes, respaldo de bases de datos, aprovisionamiento en la nube y respuesta automática ante incidentes.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="banner">
+
+<h2>
+
+Herramientas más utilizadas
+
+</h2>
+
+</div>
+
+<div class="diagrama">
+
+<div class="box">Ansible</div>
+
+<div class="box">Terraform</div>
+
+<div class="box">Docker</div>
+
+<div class="box">Kubernetes</div>
+
+<div class="box">Jenkins</div>
+
+</div>
+
+<br>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Ansible</h3>
+
+<p>
+
+Automatiza configuraciones de servidores mediante archivos YAML, permitiendo administrar cientos de equipos simultáneamente.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Terraform</h3>
+
+<p>
+
+Permite crear infraestructura como código (Infrastructure as Code), automatizando recursos en AWS, Azure y Google Cloud.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Docker y Kubernetes</h3>
+
+<p>
+
+Facilitan la implementación y administración de aplicaciones basadas en contenedores, ofreciendo alta disponibilidad y escalabilidad.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- GESTIÓN DE RIESGOS -->
+<!-- ========================================================= -->
+
+<section id="riesgos">
+
+<h2 class="titulo">
+
+🛡 Gestión de Riesgos y de Datos
+
+</h2>
+
+<p class="subtitulo">
+
+La gestión de riesgos busca identificar amenazas y vulnerabilidades para reducir el impacto de incidentes tecnológicos que puedan afectar la operación del negocio.
+
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Identificación</h3>
+
+<p>
+
+Se detectan amenazas como malware, ransomware, fallas eléctricas, errores humanos, ataques informáticos y desastres naturales.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Evaluación</h3>
+
+<p>
+
+Se analiza la probabilidad de ocurrencia y el impacto que tendría cada riesgo sobre los activos de información.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Tratamiento</h3>
+
+<p>
+
+Se implementan controles preventivos, correctivos y detectivos para minimizar la probabilidad y consecuencias de los riesgos.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="banner">
+
+<h2>
+
+Proceso de Gestión del Riesgo
+
+</h2>
+
+</div>
+
+<div class="diagrama">
+
+<div class="box">
+
+Identificar
+
+</div>
+
+<div class="box">
+
+Analizar
+
+</div>
+
+<div class="box">
+
+Evaluar
+
+</div>
+
+<div class="box">
+
+Mitigar
+
+</div>
+
+<div class="box">
+
+Monitorear
+
+</div>
+
+</div>
+
+<br>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Normas Internacionales</h3>
+
+<p>
+
+ISO 27001 proporciona controles para proteger la seguridad de la información.
+
+NIST Cybersecurity Framework facilita la identificación y tratamiento de riesgos tecnológicos.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Buenas prácticas</h3>
+
+<p>
+
+✔ Copias de seguridad.<br>
+
+✔ Autenticación multifactor.<br>
+
+✔ Actualizaciones permanentes.<br>
+
+✔ Firewalls.<br>
+
+✔ Monitoreo continuo.<br>
+
+✔ Planes de contingencia.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- GESTIÓN DE DATOS -->
+<!-- ========================================================= -->
+
+<section id="gestion">
+
+<h2 class="titulo">
+
+📊 Gestión de Datos 
+
+</h2>
+
+<p class="subtitulo">
+
+La información constituye uno de los activos más importantes de una organización. Una adecuada gestión de datos garantiza que estos permanezcan seguros, íntegros y disponibles durante todo su ciclo de vida.
+
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Ciclo de Vida</h3>
+
+<p>
+
+Creación → Almacenamiento → Uso → Compartición → Respaldo → Archivo → Eliminación Segura.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Principios</h3>
+
+<p>
+
+Confidencialidad, Integridad y Disponibilidad (CIA) son los pilares fundamentales para la protección de la información.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Gobernanza</h3>
+
+<p>
+
+Define políticas, roles y responsabilidades para asegurar la calidad, trazabilidad y cumplimiento normativo de los datos.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="banner">
+
+<h2>
+
+Buenas prácticas
+
+</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Respaldo</h3>
+
+<p>
+
+Implementar copias de seguridad automáticas y planes de recuperación ante desastres para garantizar la continuidad del negocio.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Seguridad</h3>
+
+<p>
+
+Aplicar cifrado, autenticación multifactor, control de accesos y monitoreo continuo para proteger la información.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Calidad del dato</h3>
+
+<p>
+
+Mantener información actualizada, consistente, completa y disponible para apoyar la toma de decisiones.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- CONCLUSIONES -->
+<!-- ========================================================= -->
+
+<section id="conclusiones">
+
+<h2 class="titulo">
+
+📌 Conclusiones
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<p>
+
+La infraestructura en la nube y la virtualización han revolucionado la manera en que las organizaciones administran sus recursos tecnológicos, permitiendo mayor flexibilidad, escalabilidad y reducción de costos.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<p>
+
+La automatización de TI incrementa la eficiencia operativa al reducir tareas manuales, mientras que la gestión de riesgos protege la infraestructura y garantiza la continuidad del negocio mediante controles y buenas prácticas.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<p>
+
+La combinación de nube, virtualización, automatización y gestión de riesgos constituye la base de la transformación digital y permite a las organizaciones responder de manera ágil a los cambios del entorno tecnológico.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======== FIN UNIDAD 6 ======== -->
+
+<!-- ========================================================= -->
+<!--                  CUESTIONARIO                             -->
+<!-- ========================================================= -->
+
+<section id="quiz">
+
+<h2 class="titulo">
+
+📝 Cuestionario de Autoevaluación
+
+</h2>
+
+<p class="subtitulo">
+
+Responde las siguientes preguntas para evaluar tus conocimientos sobre
+Infraestructura en la Nube, Virtualización y Automatización de TI.
+
+</p>
+
+<div class="card">
+
+<form id="quizForm">
+
+<!-- Pregunta 1 -->
+
+<p><strong>1. ¿Qué modelo ofrece infraestructura virtualizada bajo demanda?</strong></p>
+
+<label><input type="radio" name="q1" value="1"> IaaS</label><br>
+<label><input type="radio" name="q1" value="0"> SaaS</label><br>
+<label><input type="radio" name="q1" value="0"> PaaS</label>
+
+<hr>
+
+<!-- Pregunta 2 -->
+
+<p><strong>2. ¿Qué tecnología permite ejecutar múltiples sistemas operativos sobre un mismo servidor?</strong></p>
+
+<label><input type="radio" name="q2" value="1"> Virtualización</label><br>
+<label><input type="radio" name="q2" value="0"> Firewall</label><br>
+<label><input type="radio" name="q2" value="0"> VPN</label>
+
+<hr>
+
+<!-- Pregunta 3 -->
+
+<p><strong>3. ¿Cuál es una ventaja de Cloud Computing?</strong></p>
+
+<label><input type="radio" name="q3" value="1"> Escalabilidad</label><br>
+<label><input type="radio" name="q3" value="0"> Mayor consumo eléctrico</label><br>
+<label><input type="radio" name="q3" value="0"> Uso exclusivo de servidores físicos</label>
+
+<hr>
+
+<!-- Pregunta 4 -->
+
+<p><strong>4. ¿Qué herramienta es utilizada para automatización?</strong></p>
+
+<label><input type="radio" name="q4" value="1"> Ansible</label><br>
+<label><input type="radio" name="q4" value="0"> Photoshop</label><br>
+<label><input type="radio" name="q4" value="0"> Excel</label>
+
+<hr>
+
+<!-- Pregunta 5 -->
+
+<p><strong>5. ¿Qué significa HCI?</strong></p>
+
+<label><input type="radio" name="q5" value="1"> Infraestructura Hiperconvergente</label><br>
+<label><input type="radio" name="q5" value="0"> Hardware Central Integrado</label><br>
+<label><input type="radio" name="q5" value="0"> Hyper Cloud Internet</label>
+
+<hr>
+
+<!-- Pregunta 6 -->
+
+<p><strong>6. ¿Cuál es uno de los principios de seguridad de la información?</strong></p>
+
+<label><input type="radio" name="q6" value="1"> Confidencialidad</label><br>
+<label><input type="radio" name="q6" value="0"> Publicidad</label><br>
+<label><input type="radio" name="q6" value="0"> Disponibilidad limitada</label>
+
+<hr>
+
+<!-- Pregunta 7 -->
+
+<p><strong>7. ¿Qué permite Terraform?</strong></p>
+
+<label><input type="radio" name="q7" value="1"> Infraestructura como Código</label><br>
+<label><input type="radio" name="q7" value="0"> Editar imágenes</label><br>
+<label><input type="radio" name="q7" value="0"> Crear documentos</label>
+
+<hr>
+
+<!-- Pregunta 8 -->
+
+<p><strong>8. ¿Qué estándar es ampliamente utilizado para la gestión de riesgos?</strong></p>
+
+<label><input type="radio" name="q8" value="1"> ISO 27001</label><br>
+<label><input type="radio" name="q8" value="0"> ISO 9001</label><br>
+<label><input type="radio" name="q8" value="0"> ISO 14001</label>
+
+<hr>
+
+<!-- Pregunta 9 -->
+
+<p><strong>9. ¿Cuál es un beneficio de la automatización?</strong></p>
+
+<label><input type="radio" name="q9" value="1"> Reducir errores humanos</label><br>
+<label><input type="radio" name="q9" value="0"> Incrementar tareas manuales</label><br>
+<label><input type="radio" name="q9" value="0"> Disminuir disponibilidad</label>
+
+<hr>
+
+<!-- Pregunta 10 -->
+
+<p><strong>10. ¿Qué modelo de nube combina infraestructura pública y privada?</strong></p>
+
+<label><input type="radio" name="q10" value="1"> Nube Híbrida</label><br>
+<label><input type="radio" name="q10" value="0"> Nube Privada</label><br>
+<label><input type="radio" name="q10" value="0"> SaaS</label>
+
+<br><br>
+
+<button class="btn" type="button" onclick="calcular()">
+
+Calcular Puntaje
+
+</button>
+
+</form>
+
+<br>
+
+<div id="resultado"></div>
+
+</div>
+
+</section>
+
+<!-- ========================================================= -->
+<!--                  BIBLIOGRAFÍA                             -->
+<!-- ========================================================= -->
+
+<section id="bibliografia">
+
+<h2 class="titulo">
+
+📚 Bibliografía
+
+</h2>
+
+<div class="card">
+
+<ul>
+
+<li>Amazon Web Services. (2024). <em>What is Cloud Computing?</em> https://aws.amazon.com/what-is-cloud-computing/</li>
+
+<li>Microsoft. (2024). <em>Microsoft Azure Documentation.</em> https://learn.microsoft.com/azure</li>
+
+<li>VMware. (2024). <em>Virtualization Overview.</em> https://www.vmware.com</li>
+
+<li>NIST. (2024). <em>Cybersecurity Framework.</em> https://www.nist.gov/cyberframework</li>
+
+<li>ISO. (2022). <em>ISO/IEC 27001 Information Security Management.</em></li>
+
+<li>Red Hat. (2024). <em>What is Kubernetes?</em> https://www.redhat.com</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<!-- ========================================================= -->
+<!--                  FOOTER                                   -->
+<!-- ========================================================= -->
+
+<footer>
+
+<h3>
+
+Infraestructura en la Nube y Virtualización
+
+</h3>
+
+<p>
+
+Sitio web académico desarrollado como material de apoyo para las
+Unidades 5 y 6 sobre Infraestructura en la Nube, Virtualización,
+Automatización y Gestión de Riesgos en TI.
+
+</p>
+
+<p>
+
+© 2026 - Elaborado para fines educativos.
+
+</p>
+
+</footer>
+
+<!-- ========================================================= -->
+<!--                  JAVASCRIPT                               -->
+<!-- ========================================================= -->
+
+<script>
+
+function calcular(){
+
+let total=10;
+
+let puntos=0;
+
+for(let i=1;i<=10;i++){
+
+let respuesta=document.querySelector('input[name="q'+i+'"]:checked');
+
+if(respuesta){
+
+puntos+=parseInt(respuesta.value);
+
+}
+
+}
+
+let porcentaje=(puntos/total)*100;
+
+let mensaje="";
+
+if(porcentaje>=90){
+
+mensaje="🏆 Excelente dominio del tema.";
+
+}
+
+else if(porcentaje>=70){
+
+mensaje="✅ Buen desempeño.";
+
+}
+
+else if(porcentaje>=50){
+
+mensaje="⚠ Puedes reforzar algunos conceptos.";
+
+}
+
+else{
+
+mensaje="❌ Se recomienda estudiar nuevamente el contenido.";
+
+}
+
+document.getElementById("resultado").innerHTML=
+
+"<h2>Puntaje: "+puntos+" de "+total+"</h2>"+
+
+"<h3>"+porcentaje.toFixed(0)+"%</h3>"+
+
+"<p>"+mensaje+"</p>";
+
+}
+
+</script>
+
+</body>
+
+</html>
